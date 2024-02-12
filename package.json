@@ -29,7 +29,7 @@
     "react-dom": "^18",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "uuid": "^9.0.1"
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@types/node": "^20",
