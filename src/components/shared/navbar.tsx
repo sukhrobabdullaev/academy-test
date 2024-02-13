@@ -1,12 +1,8 @@
-"use client";
-import Link from "next/link";
 import { LoginButton } from "./login-button";
 import { ModeToggle } from "./theme";
-import { League_Spartan } from "next/font/google";
 import { Contact } from "./contact";
-import { cn } from "@/lib/utils";
-
-const league_Spartan = League_Spartan({ subsets: ["latin"] });
+import MobileSidebar from "./mobile-sidebar";
+import Logo from "./site-logo";
 
 const Navbar = () => {
   return (
@@ -14,12 +10,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className={cn("font-bold text-3xl", league_Spartan.className)}
-            >
-              academy.
-            </Link>
+            <div className="md:hidden block">
+              <MobileSidebar />
+            </div>
+            <Logo />
           </div>
           <div className="flex items-center gap-2">
             <Contact />

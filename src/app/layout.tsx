@@ -7,6 +7,7 @@ import NextTransitionBar from "next-transition-bar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import MobileSidebar from "@/components/shared/mobile-sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,7 +44,9 @@ export default function RootLayout({
             <div className="flex flex-col">
               <Navbar />
               <div className="flex flex-1 mt-14">
-                <Sidebar />
+                <div className="md:block hidden">
+                  <Sidebar />
+                </div>
                 <main className="flex-1 p-6">{children}</main>
               </div>
             </div>

@@ -66,8 +66,6 @@ const MediumPosts: React.FC = () => {
     usernames.forEach((username) => fetchMediumPosts(username));
   }, []); // Run only once on component mount
 
-  // console.log(posts);
-
   return (
     <div>
       <h2 className="mb-2 text-lg text-center font-bold">
