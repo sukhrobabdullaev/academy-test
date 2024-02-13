@@ -14,11 +14,10 @@ import { Ubuntu } from "next/font/google";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import SiteLogo from "./site-logo";
-import { SheetClose } from "../ui/sheet";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 
-const SideLinks = (props: any) => {
+const SideLinks = () => {
   const pathname = usePathname();
   const { isSignedIn, user, isLoaded } = useUser();
   const { signOut } = useClerk();
@@ -43,7 +42,6 @@ const SideLinks = (props: any) => {
             className={`${
               pathname === "/" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-            onClick={() => props.setOpen(false)}
           >
             <HomeIcon className="w-6 h-6" />
             <span className={` lg:block`}>Bosh Sahifa</span>
@@ -53,7 +51,6 @@ const SideLinks = (props: any) => {
             className={`${
               pathname === "/courses" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-            onClick={() => props.setOpen(false)}
           >
             <ComputerDesktopIcon className="w-6 h-6" />
             <span className={` lg:block`}>Barch kurslar</span>
@@ -63,7 +60,6 @@ const SideLinks = (props: any) => {
             className={`${
               pathname === "/articles" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto border rounded-md transition-all duration-300 ease-in-out border-[#3bc43f]  hover:border-[#288829]`}
-            onClick={() => props.setOpen(false)}
           >
             {/* <CodeBracketSquareIcon className="w-6 h-6"/> */}
             <DocumentTextIcon className="w-6 h-6" />
@@ -74,7 +70,6 @@ const SideLinks = (props: any) => {
             className={`${
               pathname === "/source_code" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md `}
-            onClick={() => props.setOpen(false)}
           >
             <CodeBracketSquareIcon className="w-6 h-6" />
             <span className={`lg:block`}>Kod manbalari</span>
@@ -85,7 +80,6 @@ const SideLinks = (props: any) => {
             className={`${
               pathname === "/projects" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-            onClick={() => props.setOpen(false)}
           >
             <FolderIcon className="w-6 h-6" />
             <span className={`lg:block`}>Loyihalar</span>
@@ -96,7 +90,6 @@ const SideLinks = (props: any) => {
               className={`${
                 pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
               } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-              onClick={() => props.setOpen(false)}
             >
               <DashboardIcon className="w-6 h-6" />
               <span className={`lg:block`}>Dashboard</span>
@@ -107,7 +100,6 @@ const SideLinks = (props: any) => {
         {isSignedIn && isLoaded ? (
           <div
             onClick={() => {
-              props.setOpen(false);
               signOut(handleSignOut);
             }}
             className={`${ubuntu.className} cursor-pointer absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
@@ -121,7 +113,6 @@ const SideLinks = (props: any) => {
           <Link
             href="/sign-in"
             className={`${ubuntu.className} absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
-            onClick={() => props.setOpen(false)}
           >
             <span className={`lg:block`}>Dasturga kirish</span>
             <div>

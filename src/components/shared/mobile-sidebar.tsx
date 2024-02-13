@@ -20,7 +20,7 @@ const MobileSidebar = () => {
         <MenuSquare className="w-6 h-6 inline-block" />
       </SheetTrigger>
       <SheetContent side="left" className="p-0">
-        <SideLinks setOpen={setSheetOpen} />
+        <SideLinks />
       </SheetContent>
     </Sheet>
   );
