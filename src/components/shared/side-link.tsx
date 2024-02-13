@@ -18,7 +18,7 @@ import { SheetClose } from "../ui/sheet";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 
-const SideLinks = () => {
+const SideLinks = (props: any) => {
   const pathname = usePathname();
   const { isSignedIn, user, isLoaded } = useUser();
   const { signOut } = useClerk();
@@ -30,9 +30,11 @@ const SideLinks = () => {
   return (
     <>
       <div
-        className={`md:bg-zinc-50 text-center transition ease-in duration-300 md:block sm:block dark:md:bg-zinc-900 p-4 fixed top-14 lg:w-64 left-0 h-full md:border-r`}
+        className={`md:bg-zinc-50 text-center transition ease-in duration-300 md:block sm:block dark:md:bg-zinc-900 p-4 fixed md:top-14 lg:w-64 left-0 h-full md:border-r`}
       >
-        <SiteLogo />
+        <div className="md:hidden block">
+          <SiteLogo />
+        </div>
         <div
           className={`flex md:gap-3 gap-2 items-center justify-center flex-col pt-20 ${ubuntu.className}`}
         >
@@ -41,6 +43,7 @@ const SideLinks = () => {
             className={`${
               pathname === "/" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+            onClick={() => props.setOpen(false)}
           >
             <HomeIcon className="w-6 h-6" />
             <span className={` lg:block`}>Bosh Sahifa</span>
@@ -50,6 +53,7 @@ const SideLinks = () => {
             className={`${
               pathname === "/courses" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+            onClick={() => props.setOpen(false)}
           >
             <ComputerDesktopIcon className="w-6 h-6" />
             <span className={` lg:block`}>Barch kurslar</span>
@@ -59,6 +63,7 @@ const SideLinks = () => {
             className={`${
               pathname === "/articles" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto border rounded-md transition-all duration-300 ease-in-out border-[#3bc43f]  hover:border-[#288829]`}
+            onClick={() => props.setOpen(false)}
           >
             {/* <CodeBracketSquareIcon className="w-6 h-6"/> */}
             <DocumentTextIcon className="w-6 h-6" />
@@ -69,6 +74,7 @@ const SideLinks = () => {
             className={`${
               pathname === "/source_code" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md `}
+            onClick={() => props.setOpen(false)}
           >
             <CodeBracketSquareIcon className="w-6 h-6" />
             <span className={`lg:block`}>Kod manbalari</span>
@@ -79,6 +85,7 @@ const SideLinks = () => {
             className={`${
               pathname === "/projects" && "bg-[#3bc43f]"
             } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+            onClick={() => props.setOpen(false)}
           >
             <FolderIcon className="w-6 h-6" />
             <span className={`lg:block`}>Loyihalar</span>
@@ -89,6 +96,7 @@ const SideLinks = () => {
               className={`${
                 pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
               } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+              onClick={() => props.setOpen(false)}
             >
               <DashboardIcon className="w-6 h-6" />
               <span className={`lg:block`}>Dashboard</span>
@@ -98,7 +106,10 @@ const SideLinks = () => {
 
         {isSignedIn && isLoaded ? (
           <div
-            onClick={() => signOut(handleSignOut)}
+            onClick={() => {
+              props.setOpen(false);
+              signOut(handleSignOut);
+            }}
             className={`${ubuntu.className} cursor-pointer absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
           >
             <span className={`lg:block`}>Chiqish</span>
@@ -110,6 +121,7 @@ const SideLinks = () => {
           <Link
             href="/sign-in"
             className={`${ubuntu.className} absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
+            onClick={() => props.setOpen(false)}
           >
             <span className={`lg:block`}>Dasturga kirish</span>
             <div>
