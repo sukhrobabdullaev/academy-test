@@ -1,7 +1,6 @@
-"use client";
-
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -10,12 +9,10 @@ import {
 } from "@/components/ui/sheet";
 import SideLinks from "./side-link";
 import { MenuSquare } from "lucide-react";
-import { useState } from "react";
 
 const MobileSidebar = () => {
-  const [sheetOpen, setSheetOpen] = useState(false);
   return (
-    <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+    <Sheet>
       <SheetTrigger>
         <MenuSquare className="w-6 h-6 inline-block" />
       </SheetTrigger>

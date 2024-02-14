@@ -37,53 +37,20 @@ const SideLinks = () => {
         <div
           className={`flex md:gap-3 gap-2 items-center justify-center flex-col pt-20 ${ubuntu.className}`}
         >
-          <Link
-            href={"/"}
-            className={`${
-              pathname === "/" && "bg-[#3bc43f]"
-            } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-          >
-            <HomeIcon className="w-6 h-6" />
-            <span className={` lg:block`}>Bosh Sahifa</span>
-          </Link>
-          <Link
-            href={"/courses"}
-            className={`${
-              pathname === "/courses" && "bg-[#3bc43f]"
-            } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-          >
-            <ComputerDesktopIcon className="w-6 h-6" />
-            <span className={` lg:block`}>Barch kurslar</span>
-          </Link>
-          <Link
-            href={"/articles"}
-            className={`${
-              pathname === "/articles" && "bg-[#3bc43f]"
-            } flex text-lg items-center gap-1 p-3 w-full mx-auto border rounded-md transition-all duration-300 ease-in-out border-[#3bc43f]  hover:border-[#288829]`}
-          >
-            {/* <CodeBracketSquareIcon className="w-6 h-6"/> */}
-            <DocumentTextIcon className="w-6 h-6" />
-            <span className={`lg:block`}>Maqolalar</span>
-          </Link>
-          <Link
-            href={"/source_code"}
-            className={`${
-              pathname === "/source_code" && "bg-[#3bc43f]"
-            } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md `}
-          >
-            <CodeBracketSquareIcon className="w-6 h-6" />
-            <span className={`lg:block`}>Kod manbalari</span>
-          </Link>
-
-          <Link
-            href={"/projects"}
-            className={`${
-              pathname === "/projects" && "bg-[#3bc43f]"
-            } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-          >
-            <FolderIcon className="w-6 h-6" />
-            <span className={`lg:block`}>Loyihalar</span>
-          </Link>
+          {links.map((el) => {
+            return (
+              <Link
+                className={`${
+                  pathname === `${el.href}` && "bg-[#3bc43f]"
+                } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+                key={el.label}
+                href={el.href}
+              >
+                <el.icon className="w-6 h-6" />
+                <span className="lg:block">{el.label}</span>
+              </Link>
+            );
+          })}
           {isSignedIn && isLoaded && (
             <Link
               href={`/profile/${user.id}`}
@@ -126,3 +93,31 @@ const SideLinks = () => {
 };
 
 export default SideLinks;
+
+const links = [
+  {
+    href: "/",
+    icon: HomeIcon,
+    label: "Bosh sahifa",
+  },
+  {
+    href: "/courses",
+    icon: ComputerDesktopIcon,
+    label: "Barcha kurslar",
+  },
+  {
+    href: "/articles",
+    icon: DocumentTextIcon,
+    label: "Maqolalar",
+  },
+  {
+    href: "/source_code",
+    icon: CodeBracketSquareIcon,
+    label: "Kod manbalari",
+  },
+  {
+    href: "/projects",
+    icon: FolderIcon,
+    label: "Loyihalar",
+  },
+];
