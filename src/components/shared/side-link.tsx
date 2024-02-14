@@ -14,10 +14,16 @@ import { Ubuntu } from "next/font/google";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import SiteLogo from "./site-logo";
+import { SheetClose } from "../ui/sheet";
+import React from "react";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 
-const SideLinks = () => {
+const SideLinks = (props: any) => {
+  const [SheetCloseWrapper, shetCloseWrapperProps] = props.withSheetClose
+    ? [SheetClose, { asChild: true }]
+    : [React.Fragment, {}];
+
   const pathname = usePathname();
   const { isSignedIn, user, isLoaded } = useUser();
   const { signOut } = useClerk();
@@ -39,53 +45,61 @@ const SideLinks = () => {
         >
           {links.map((el) => {
             return (
-              <Link
-                className={`${
-                  pathname === `${el.href}` && "bg-[#3bc43f]"
-                } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-                key={el.label}
-                href={el.href}
-              >
-                <el.icon className="w-6 h-6" />
-                <span className="lg:block">{el.label}</span>
-              </Link>
+              <SheetCloseWrapper {...shetCloseWrapperProps} key={el.href}>
+                <Link
+                  className={`${
+                    pathname === `${el.href}` && "bg-[#3bc43f]"
+                  } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+                  key={el.label}
+                  href={el.href}
+                >
+                  <el.icon className="w-6 h-6" />
+                  <span className="lg:block">{el.label}</span>
+                </Link>
+              </SheetCloseWrapper>
             );
           })}
           {isSignedIn && isLoaded && (
-            <Link
-              href={`/profile/${user.id}`}
-              className={`${
-                pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
-              } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-            >
-              <DashboardIcon className="w-6 h-6" />
-              <span className={`lg:block`}>Dashboard</span>
-            </Link>
+            <SheetCloseWrapper {...shetCloseWrapperProps}>
+              <Link
+                href={`/profile/${user.id}`}
+                className={`${
+                  pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
+                } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+              >
+                <DashboardIcon className="w-6 h-6" />
+                <span className={`lg:block`}>Dashboard</span>
+              </Link>
+            </SheetCloseWrapper>
           )}
         </div>
 
         {isSignedIn && isLoaded ? (
-          <div
-            onClick={() => {
-              signOut(handleSignOut);
-            }}
-            className={`${ubuntu.className} cursor-pointer absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
-          >
-            <span className={`lg:block`}>Chiqish</span>
-            <div>
-              <ArrowRightEndOnRectangleIcon className="w-6 h-6" />
+          <SheetCloseWrapper {...shetCloseWrapperProps}>
+            <div
+              onClick={() => {
+                signOut(handleSignOut);
+              }}
+              className={`${ubuntu.className} cursor-pointer absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
+            >
+              <span className={`lg:block`}>Chiqish</span>
+              <div>
+                <ArrowRightEndOnRectangleIcon className="w-6 h-6" />
+              </div>
             </div>
-          </div>
+          </SheetCloseWrapper>
         ) : (
-          <Link
-            href="/sign-in"
-            className={`${ubuntu.className} absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
-          >
-            <span className={`lg:block`}>Dasturga kirish</span>
-            <div>
-              <ArrowRightEndOnRectangleIcon className="w-6 h-6" />
-            </div>
-          </Link>
+          <SheetCloseWrapper {...shetCloseWrapperProps}>
+            <Link
+              href="/sign-in"
+              className={`${ubuntu.className} absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
+            >
+              <span className={`lg:block`}>Dasturga kirish</span>
+              <div>
+                <ArrowRightEndOnRectangleIcon className="w-6 h-6" />
+              </div>
+            </Link>
+          </SheetCloseWrapper>
         )}
       </div>
     </>
@@ -103,7 +117,7 @@ const links = [
   {
     href: "/courses",
     icon: ComputerDesktopIcon,
-    label: "Barcha kurslar",
+    label: "Kurslar",
   },
   {
     href: "/articles",

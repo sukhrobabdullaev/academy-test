@@ -7,8 +7,7 @@ import Link from "next/link";
 
 const UserProfile = () => {
   const { isSignedIn, user, isLoaded } = useUser();
-  // console.log(user);
-  
+
   return (
     <div className="lg:ml-64 md:ml-20 sm:ml-24 lg:py-10 lg:pl-10 flex items-center justify-between">
       <div className="user_data flex items-center gap-2">
