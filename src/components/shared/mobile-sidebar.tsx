@@ -16,7 +16,10 @@ const MobileSidebar = () => {
       <SheetTrigger>
         <MenuSquare className="w-6 h-6 inline-block" />
       </SheetTrigger>
-      <SheetContent side="left" className="p-0">
+      <SheetContent
+        side="left"
+        className="w-1/2 dark:bg-zinc-900 bg-zinc-50 border-r-0"
+      >
         <SideLinks withSheetClose />
       </SheetContent>
     </Sheet>

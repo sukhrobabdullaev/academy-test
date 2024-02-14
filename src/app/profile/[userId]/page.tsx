@@ -11,7 +11,7 @@ const UserProfile = () => {
   return (
     <div className="lg:ml-64 md:ml-20 sm:ml-24 lg:py-10 lg:pl-10 flex items-center justify-between">
       <div className="user_data flex items-center gap-2">
-        {isLoaded && (
+        {isLoaded && user && (
           <Image
             src={`${user?.imageUrl}`}
             alt="user profile image"

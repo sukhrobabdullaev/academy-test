@@ -6,14 +6,12 @@ const league_Spartan = League_Spartan({ subsets: ["latin"] });
 
 const SiteLogo = () => {
   return (
-    <>
-      <Link
-        href="/"
-        className={cn("font-bold text-3xl", league_Spartan.className)}
-      >
-        academy.
-      </Link>
-    </>
+    <Link
+      href="/"
+      className={cn("font-bold text-3xl", league_Spartan.className)}
+    >
+      academy.
+    </Link>
   );
 };
 

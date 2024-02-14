@@ -41,7 +41,7 @@ const Home = () => {
       </div>
       <div className="relative w-64 h-64" style={{ height: "250px" }}>
         <Image
-          src={"/js-icon.png"}
+          src="/js-icon.png"
           fill
           priority
           alt="js-icon"

@@ -16,6 +16,7 @@ import { usePathname, useRouter } from "next/navigation";
 import SiteLogo from "./site-logo";
 import { SheetClose } from "../ui/sheet";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 
@@ -35,7 +36,7 @@ const SideLinks = (props: any) => {
   return (
     <>
       <div
-        className={`md:bg-zinc-50 text-center transition ease-in duration-300 md:block sm:block dark:md:bg-zinc-900 p-4 fixed md:top-14 lg:w-64 left-0 h-full md:border-r`}
+        className={`bg-zinc-50 text-center transition ease-in duration-300 md:block sm:block dark:bg-zinc-900 md:p-4 p-5 fixed md:top-14 lg:w-64 left-0 h-full md:border-r`}
       >
         <div className="md:hidden block">
           <SiteLogo />
@@ -80,9 +81,9 @@ const SideLinks = (props: any) => {
               onClick={() => {
                 signOut(handleSignOut);
               }}
-              className={`${ubuntu.className} cursor-pointer absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
+              className={`${ubuntu.className} ${authClass} cursor-pointer bg-red-700 hover:bg-red-400 hover:dark:bg-red-400`}
             >
-              <span className={`lg:block`}>Chiqish</span>
+              <span className="lg:block">Chiqish</span>
               <div>
                 <ArrowRightEndOnRectangleIcon className="w-6 h-6" />
               </div>
@@ -92,9 +93,9 @@ const SideLinks = (props: any) => {
           <SheetCloseWrapper {...shetCloseWrapperProps}>
             <Link
               href="/sign-in"
-              className={`${ubuntu.className} absolute bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f]`}
+              className={`${ubuntu.className} ${authClass} `}
             >
-              <span className={`lg:block`}>Dasturga kirish</span>
+              <span className="lg:block">Dasturga kirish</span>
               <div>
                 <ArrowRightEndOnRectangleIcon className="w-6 h-6" />
               </div>
@@ -135,3 +136,6 @@ const links = [
     label: "Loyihalar",
   },
 ];
+
+const authClass =
+  "absolute md:bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f] bottom-10";
