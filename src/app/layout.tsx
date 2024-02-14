@@ -7,7 +7,34 @@ import NextTransitionBar from "next-transition-bar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark, neobrutalism } from "@clerk/themes";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import MobileSidebar from "@/components/shared/mobile-sidebar";
+import { daDK, enUS } from "@clerk/localizations";
+
+const localization = {
+  socialButtonsBlockButton: "{{provider|titleize}} orqali davom etish",
+  userButton: {
+    action__addAccount: "Hisob qo'shish",
+    action__manageAccount: "Hisobni boshqarish",
+    action__signOut: "Chiqish",
+    action__signOutAll: "barch hisobdan chiqish",
+    actionLink: "Ro'yxatdan o'tish",
+  },
+  signIn: {
+    start: {
+      title: "Kirish",
+      subtitle: '"{{applicationName}}" da ishlashni davom ettirish uchun',
+      actionText: "Hisobingiz yo'qmi?",
+      actionLink: "Ro'yxatdan o'tish",
+    },
+  },
+  signUp: {
+    start: {
+      title: "Hisob yarating",
+      subtitle: '"{{applicationName}}" da ishlashni davom ettirish uchun',
+      actionText: "Hisobingiz bormi?",
+      actionLink: "Kirish",
+    },
+  },
+};
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +53,7 @@ export default function RootLayout({
       appearance={{
         baseTheme: dark,
       }}
+      localization={localization}
     >
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>

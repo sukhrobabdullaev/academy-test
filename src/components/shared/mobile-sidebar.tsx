@@ -18,7 +18,7 @@ const MobileSidebar = () => {
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="w-1/2 dark:bg-zinc-900 bg-zinc-50 border-r-0"
+        className="w-3/4 dark:bg-zinc-900 bg-zinc-50 border-r-0"
       >
         <SideLinks withSheetClose />
       </SheetContent>
