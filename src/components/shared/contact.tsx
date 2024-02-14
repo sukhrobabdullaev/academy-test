@@ -19,10 +19,12 @@ export function Contact() {
       <DialogTrigger asChild>
         <PaperAirplaneIcon className="h-6 w-6 text-black dark:text-white cursor-pointer" />
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="md:w-full w-[350px]">
         <DialogHeader>
-          <DialogTitle>Biz bilan bog&apos;laning.</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-base md:text-2xl">
+            Biz bilan bog&apos;laning.
+          </DialogTitle>
+          <DialogDescription className="text-sm md:text-md">
             Kurslar haqida ma&apos;lumot olishingiz uchun formani to&apos;diring
             va yuborish tugmasini bosing!
           </DialogDescription>

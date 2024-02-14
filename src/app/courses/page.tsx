@@ -8,7 +8,7 @@ import {
 
 const Courses = () => {
   return (
-    <div className="lg:ml-64 md:ml-20 sm:ml-24">
+    <div className="md:ml-64">
       <h2 className="text-3xl mb-3">Kurslar</h2>
       <div className="flex items-center gap-3 flex-wrap">
         <HoverCard>

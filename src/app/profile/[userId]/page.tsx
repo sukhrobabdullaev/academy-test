@@ -9,7 +9,7 @@ const UserProfile = () => {
   const { isSignedIn, user, isLoaded } = useUser();
 
   return (
-    <div className="lg:ml-64 md:ml-20 sm:ml-24 lg:py-10 lg:pl-10 flex items-center justify-between">
+    <div className="md:ml-64 lg:py-10 lg:pl-10 flex items-center justify-between">
       <div className="user_data flex items-center gap-2">
         {isLoaded && user && (
           <Image

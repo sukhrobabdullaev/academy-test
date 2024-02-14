@@ -55,12 +55,7 @@ const MediumPosts: React.FC = () => {
     };
 
     // List of usernames you want to fetch posts for
-    const usernames = [
-      "sukhrobabdullaev",
-      "misszamzam",
-      "chideracode",
-      "pragyanatvade",
-    ];
+    const usernames = ["sukhrobabdullaev", "misszamzam", "chideracode"];
 
     // Fetch posts for each username
     usernames.forEach((username) => fetchMediumPosts(username));
@@ -71,10 +66,10 @@ const MediumPosts: React.FC = () => {
       <h2 className="mb-2 text-lg text-center font-bold">
         Top Articles for Web Development
       </h2>
-      <ul className="flex flex-wrap gap-2">
+      <ul className="flex flex-wrap lg:gap-10 xl:gap-10">
         {posts.map((post) => (
           <Link href={post.canonical_url} key={post.id}>
-            <Card className="lg:w-[400px] flex flex-col gap-4">
+            <Card className="lg:w-[400px] xl:w-[340px] flex flex-col gap-4">
               <CardHeader>
                 <div className="flex justify-between">
                   <div className="flex items-center gap-1">

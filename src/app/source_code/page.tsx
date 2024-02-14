@@ -1,7 +1,5 @@
 const SourceCode = () => {
-  return (
-    <div className="ml-64">SourceCode</div>
-  )
-}
+  return <div className="md:ml-64">SourceCode</div>;
+};
 
-export default SourceCode
+export default SourceCode;

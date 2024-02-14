@@ -1,11 +1,11 @@
-import DevArticles from "@/components/fetchdata/dev-articles"
+import DevArticles from "@/components/fetchdata/dev-articles";
 
 const Articles = () => {
   return (
-    <div className="lg:ml-64 md:ml-20 sm:ml-24">
-      <DevArticles/>
+    <div className="md:ml-64">
+      <DevArticles />
     </div>
-  )
-}
+  );
+};
 
-export default Articles
+export default Articles;

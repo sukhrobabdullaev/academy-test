@@ -36,7 +36,7 @@ const SideLinks = (props: any) => {
   return (
     <>
       <div
-        className={`bg-zinc-50 text-center transition ease-in duration-300 md:block sm:block dark:bg-zinc-900 md:p-4 p-5 fixed md:top-14 md:w-64 left-0 h-full md:border-r`}
+        className={`bg-zinc-50 text-center transition ease-in duration-300 lg:block dark:bg-zinc-900 md:p-4 p-5 fixed md:top-14 md:w-64 left-0 h-full md:border-r`}
       >
         <div className="md:hidden block">
           <SiteLogo />

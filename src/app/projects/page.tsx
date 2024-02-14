@@ -7,5 +7,5 @@ export default async function Page() {
 
   // if (!user) return <div className="ml-64">Not logged in</div>;
 
-  return <div className="ml-64">Hello {user?.firstName}</div>;
+  return <div className="md:ml-64">Hello {user?.firstName}</div>;
 }
