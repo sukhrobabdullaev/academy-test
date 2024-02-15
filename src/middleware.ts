@@ -10,6 +10,7 @@ export default authMiddleware({
     "/source_code",
     "/courses",
     "/courses/react",
+    "/courses/html",
     "/projects",
   ],
 });

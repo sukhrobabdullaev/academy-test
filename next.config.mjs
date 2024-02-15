@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [
       { hostname: "media.dev.to" },
       { hostname: "img.clerk.com" },
+      { hostname: "media.graphassets.com" },
     ],
   },
 };

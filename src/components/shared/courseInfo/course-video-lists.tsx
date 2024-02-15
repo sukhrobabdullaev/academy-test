@@ -6,8 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ICourse } from "@/interfaces/courses.interface";
 
-const CourseVideoLists = () => {
+const CourseVideoLists = ({ data }: { data: ICourse }) => {
   return (
     <div className="bg-gradient-to-r from-[#3bc43f] mt-8 rounded-md p-4 lg:px-8 lg:py-4">
       <h1 className="text-xl font-medium">Kurs kontenti</h1>
@@ -30,86 +31,21 @@ const CourseVideoLists = () => {
             1-Modul. ReactJS asoslari
           </AccordionTrigger>
           <AccordionContent className="p-4">
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
+            {data.videos.map((video, i) => (
+              <div
+                key={video.slug}
+                className="flex items-center justify-between py-2 hover:opacity-75"
+                role="button"
+              >
+                <div className="flex items-center gap-2">
+                  <FileVideoIcon className="w-6 h-6" />
+                  <p>
+                    #{i + 1} {video.title}
+                  </p>
+                </div>
+                <p>10:12</p>
               </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
+            ))}
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2" className="mb-4 border-b-0">
@@ -117,76 +53,6 @@ const CourseVideoLists = () => {
             2-Modul. ReactJSda loyiha
           </AccordionTrigger>
           <AccordionContent className="p-4">
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
-            <div
-              className="flex items-center justify-between py-2 hover:opacity-75"
-              role="button"
-            >
-              <div className="flex items-center gap-2">
-                <FileVideoIcon className="w-6 h-6" />
-                <p>#1. ReactJS nima va nima uchun kerak</p>
-              </div>
-              <p>10:12</p>
-            </div>
             <div
               className="flex items-center justify-between py-2 hover:opacity-75"
               role="button"
