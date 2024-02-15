@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import CustomImage from "@/components/shared/image";
 
 const Courses = () => {
   return (
@@ -12,13 +13,7 @@ const Courses = () => {
             href="/courses/react"
             className="flex flex-col gap-2 shadow-md lg:h-64 lg:w-64 p-6 rounded-md  items-center justify-center"
           >
-            <Image
-              src="/courses/react.png"
-              alt="react"
-              width={150}
-              height={150}
-              priority={true}
-            />
+            <CustomImage product={{ image: "/courses/react.png" }} fill />
             <h3 className="md:text-xl">ReactJS</h3>
           </Link>
         </Card>
@@ -27,13 +22,7 @@ const Courses = () => {
             href="/"
             className="flex flex-col gap-2 shadow-md lg:h-64 lg:w-64 p-6 rounded-md border items-center justify-center"
           >
-            <Image
-              src="/courses/html.png"
-              alt="react"
-              width={150}
-              height={150}
-              priority={true}
-            />
+            <CustomImage product={{ image: "/courses/html.png" }} fill />
             <h3 className="md:text-xl">HTML</h3>
           </Link>
         </Card>
@@ -42,13 +31,7 @@ const Courses = () => {
             href="/"
             className="flex flex-col gap-2 shadow-md lg:h-64 lg:w-64 p-6 rounded-md border items-center justify-center"
           >
-            <Image
-              src="/courses/css.png"
-              alt="react"
-              width={150}
-              height={150}
-              priority={true}
-            />
+            <CustomImage product={{ image: "/courses/css.png" }} fill />
             <h3 className="md:text-xl">CSS</h3>
           </Link>
         </Card>

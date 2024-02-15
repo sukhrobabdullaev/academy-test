@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CustomImage from "../image";
 
 const CourseDetailed = () => {
   return (
@@ -16,14 +17,9 @@ const CourseDetailed = () => {
           </div>
         </div>
         <div className="flex flex-col gap-2 lg:h-64 rounded-md items-center justify-center lg:w-[40%]">
-          <Image
-            src="/courses/react.png"
-            alt="react"
-            width={170}
-            height={170}
-            priority={true}
-            className="animate-pulse animate-infinite"
-          />
+          <div className="animate-pulse animate-infinite">
+            <CustomImage product={{ image: "/courses/react.png" }} fill />
+          </div>
           <h3 className="text-xl">ReactJS</h3>
         </div>
       </div>
