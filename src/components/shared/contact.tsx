@@ -18,7 +18,7 @@ export function Contact() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <ContactIcon className="h-6 w-6 text-black dark:text-white cursor-pointer" />
+        <ContactIcon className="h-5 w-5 text-black dark:text-white cursor-pointer" />
       </DialogTrigger>
       <DialogContent className="md:w-full w-[350px]">
         <DialogHeader>

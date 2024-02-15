@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div
-      className={`${quicksand.className} md:ml-64 p-4 bg-zinc-50 dark:bg-zinc-900 sm:flex sm:items-center sm:justify-around rounded-md`}
+      className={`${quicksand.className} md:ml-64 p-4 border sm:flex sm:items-center sm:justify-around rounded-md`}
     >
       <div className="basis-1/2">
         <h1 className="lg:text-3xl md:text-[24px] sm:text-[20px] text-[26px] mb-3">

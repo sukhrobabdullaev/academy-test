@@ -36,7 +36,7 @@ const SideLinks = (props: any) => {
   return (
     <>
       <div
-        className={`bg-zinc-50 text-center transition ease-in duration-300 lg:block dark:bg-zinc-900 md:p-4 p-5 fixed md:top-14 md:w-64 left-0 h-full md:border-r`}
+        className={` text-center transition ease-in duration-300 lg:block  md:p-4 p-5 fixed md:top-14 md:w-64 left-0 h-full md:border-r overflow-auto`}
       >
         <div className="md:hidden block">
           <SiteLogo />
@@ -50,7 +50,7 @@ const SideLinks = (props: any) => {
                 <Link
                   className={`${
                     pathname === `${el.href}` && "bg-[#3bc43f]"
-                  } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+                  } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
                   key={el.label}
                   href={el.href}
                 >
@@ -66,7 +66,7 @@ const SideLinks = (props: any) => {
                 href={`/profile/${user.id}`}
                 className={`${
                   pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
-                } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
+                } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
               >
                 <DashboardIcon className="w-6 h-6" />
                 <span className={`lg:block`}>Dashboard</span>

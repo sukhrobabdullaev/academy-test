@@ -14,21 +14,20 @@ export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" onClick={toggleTheme}>
-          <MoonIcon
-            className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-            // onClick={() => setTheme("dark")}
-          />
-          <SunIcon
-            className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-            // onClick={() => setTheme("light")}
-          />
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleTheme}
+          className="dark:hover:bg-zinc-900"
+        >
+          <MoonIcon className="absolute w-4 h-4 rotate-0 scale-100 transition-all dark:rotate-0 dark:scale-0" />
+          <SunIcon className="w-4 h-4 rotate-0 scale-0 transition-all dark:-rotate-90 dark:scale-100 " />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

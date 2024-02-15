@@ -1,6 +1,7 @@
 import { BadgeCheck } from "lucide-react";
 import React from "react";
 import Prerequists from "./prerequists";
+import CourseVideoLists from "./course-video-lists";
 
 const Results = () => {
   return (
@@ -38,7 +39,7 @@ const Results = () => {
           </div>
         </div>
       </div>
-      <Prerequists />
+      <CourseVideoLists />
       <Prerequists />
     </div>
   );
