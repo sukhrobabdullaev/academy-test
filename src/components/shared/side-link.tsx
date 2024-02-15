@@ -81,7 +81,7 @@ const SideLinks = (props: any) => {
               onClick={() => {
                 signOut(handleSignOut);
               }}
-              className={`${ubuntu.className} ${authClass} cursor-pointer bg-red-700 hover:bg-red-400 hover:dark:bg-red-400`}
+              className={`${ubuntu.className} ${authClass} cursor-pointer bg-red-700 hover:bg-red-400 hover:dark:bg-red-400 w-3/4`}
             >
               <span className="lg:block">Chiqish</span>
               <div>
@@ -138,4 +138,4 @@ const links = [
 ];
 
 const authClass =
-  "absolute md:bottom-20 flex text-lg items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out dark:hover:bg-[#3bc43f] bottom-10";
+  "absolute md:bottom-20 flex text-lg justify-center items-center gap-1 p-2 rounded-md transition-all border duration-500 ease-in-out  dark:hover:bg-[#3bc43f] bottom-10";
