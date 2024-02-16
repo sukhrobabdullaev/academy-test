@@ -31,7 +31,7 @@ const CourseSidebar = async () => {
         className={`text-center z-50 transition ease-in duration-300 lg:block fixed  overflow-y-auto md:top-0 md:w-[300px] left-0 h-full md:border-r overflow-auto`}
       >
         <div
-          className={`flex md:gap-3 gap-2 items-center justify-center flex-col pt-14`}
+          className={`flex md:gap-3 gap-2 items-center justify-center flex-col`}
         >
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0 p-2">

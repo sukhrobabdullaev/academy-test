@@ -24,7 +24,7 @@ const Courses = async () => {
           data.map((course) => (
             <Card key={course.label}>
               <Link
-                href={`/courses/${course.slug}`}
+                href={`/course/${course.slug}`}
                 className="flex flex-col gap-2 shadow-md lg:h-64 lg:w-64 p-6 rounded-md  items-center justify-center"
               >
                 <CustomImage product={{ image: `${course.image.url}` }} fill />

@@ -30,7 +30,7 @@ const CoursePrice = ({ params }: { params: { slug: string } }) => {
         <Button
           variant="default"
           className="inline-block w-full bg-[#3bc43f] font-semibold hover:bg-[#47c64b]"
-          onClick={() => router.push(`/course/${params.slug}`)}
+          onClick={() => router.push(`/course/${params.slug}/access`)}
         >
           Kirish
         </Button>
