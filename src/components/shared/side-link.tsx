@@ -1,22 +1,21 @@
 "use client";
 
 import { useClerk, useUser } from "@clerk/nextjs";
-import {
-  ArrowRightEndOnRectangleIcon,
-  CodeBracketSquareIcon,
-  ComputerDesktopIcon,
-  DocumentTextIcon,
-  FolderIcon,
-  HomeIcon,
-} from "@heroicons/react/16/solid";
-import { DashboardIcon } from "@radix-ui/react-icons";
+import { ArrowRightEndOnRectangleIcon } from "@heroicons/react/16/solid";
 import { Ubuntu } from "next/font/google";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import SiteLogo from "./site-logo";
 import { SheetClose } from "../ui/sheet";
 import React from "react";
-import { cn } from "@/lib/utils";
+import {
+  BookOpenIcon,
+  Brackets,
+  FolderKanbanIcon,
+  Home,
+  LayoutDashboard,
+  SquareCode,
+} from "lucide-react";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 
@@ -36,7 +35,7 @@ const SideLinks = (props: any) => {
   return (
     <>
       <div
-        className={` text-center transition ease-in duration-300 lg:block  md:p-4 p-5 fixed md:top-14 md:w-64 left-0 h-full md:border-r overflow-auto`}
+        className={` text-center transition z-50 ease-in duration-300 lg:block  md:p-4 p-5 fixed md:top-14 md:w-64 left-0 h-full md:border-r overflow-auto`}
       >
         <div className="md:hidden block">
           <SiteLogo />
@@ -50,7 +49,7 @@ const SideLinks = (props: any) => {
                 <Link
                   className={`${
                     pathname === `${el.href}` && "bg-[#3bc43f]"
-                  } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
+                  } flex text-lg items-center gap-4 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
                   key={el.label}
                   href={el.href}
                 >
@@ -66,9 +65,9 @@ const SideLinks = (props: any) => {
                 href={`/profile/${user.id}`}
                 className={`${
                   pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
-                } flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
+                } flex text-lg items-center gap-4 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
               >
-                <DashboardIcon className="w-6 h-6" />
+                <LayoutDashboard className="w-6 h-6" />
                 <span className={`lg:block`}>Dashboard</span>
               </Link>
             </SheetCloseWrapper>
@@ -112,27 +111,27 @@ export default SideLinks;
 const links = [
   {
     href: "/",
-    icon: HomeIcon,
+    icon: Home,
     label: "Bosh sahifa",
   },
   {
     href: "/courses",
-    icon: ComputerDesktopIcon,
+    icon: Brackets,
     label: "Kurslar",
   },
   {
     href: "/articles",
-    icon: DocumentTextIcon,
+    icon: BookOpenIcon,
     label: "Maqolalar",
   },
   {
     href: "/source_code",
-    icon: CodeBracketSquareIcon,
+    icon: SquareCode,
     label: "Kod manbalari",
   },
   {
     href: "/projects",
-    icon: FolderIcon,
+    icon: FolderKanbanIcon,
     label: "Loyihalar",
   },
 ];
