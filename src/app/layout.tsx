@@ -68,15 +68,7 @@ export default function RootLayout({
               speed={200}
               showSpinner={false}
             />
-            <div className="flex flex-col">
-              <Navbar />
-              <div className="flex flex-1 mt-14">
-                <div className="md:block hidden">
-                  <Sidebar />
-                </div>
-                <main className="flex-1 p-6">{children}</main>
-              </div>
-            </div>
+            <main className="flex-1 p-6">{children}</main>
           </ThemeProvider>
         </body>
       </html>

@@ -23,14 +23,13 @@ const SingleCourse = async ({ params }: { params: { slug: string } }) => {
     // Render an appropriate message or handle the null case
     return <div>No data available for this course</div>;
   }
-  console.log(data.videos);
 
   return (
     <div className={cn("md:ml-64", montserrat.className)}>
       <CourseDetailed data={data} />
       <div className="mt-8 flex flex-row gap-8">
         <Results data={data} />
-        <CoursePrice />
+        <CoursePrice params={params} />
       </div>
     </div>
   );

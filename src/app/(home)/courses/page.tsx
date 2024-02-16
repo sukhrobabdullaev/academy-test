@@ -15,6 +15,7 @@ function getData() {
 
 const Courses = async () => {
   const data = await getData();
+
   return (
     <div className="md:ml-64">
       <h2 className="text-3xl mb-3">Kurslar</h2>

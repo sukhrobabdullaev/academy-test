@@ -1,5 +1,7 @@
 "use client";
 
+import Navbar from "@/components/shared/navbar";
+import Sidebar from "@/components/shared/sidebar";
 import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";

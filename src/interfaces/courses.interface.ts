@@ -18,5 +18,8 @@ export interface ICourse {
   videos: {
     slug: string;
     title: string;
+    video: {
+      url: string;
+    }[];
   }[];
 }
