@@ -68,7 +68,7 @@ export default function RootLayout({
               speed={200}
               showSpinner={false}
             />
-            <main className="flex-1 p-6">{children}</main>
+            <main>{children}</main>
           </ThemeProvider>
         </body>
       </html>
