@@ -1,22 +1,19 @@
-"use client";
-
-import CourseSidebar from "@/components/shared/course-sidebar";
-// import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Navbar from "@/components/shared/navbar";
 import Sidebar from "@/components/shared/sidebar";
-import { usePathname } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
-// export const metadata: Metadata = {
-//   title: "Academy",
-//   description: "Sukhrob Academy",
-// };
+export const metadata: Metadata = {
+  title: "Academy",
+  description: "Sukhrob Academy",
+};
 
 export default function HomeLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
+  // const { userId }: { userId: string | null } = auth();
 
   return (
     <>
@@ -24,7 +21,7 @@ export default function HomeLayout({
         <Navbar />
         <div className="flex flex-1 mt-14">
           <div className="md:block hidden">
-            {pathname.includes("access") ? <CourseSidebar /> : <Sidebar />}
+            <Sidebar />
           </div>
           <main className="flex-1 p-6">{children}</main>
         </div>

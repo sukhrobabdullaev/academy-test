@@ -1,8 +1,13 @@
-import CourseSidebar from "@/components/shared/course-sidebar";
-import Navbar from "@/components/shared/navbar";
-
-const page = () => {
-  return <h1>NEW </h1>;
+const CoursePage = ({ params }: { params: { id: string } }) => {
+  return (
+    <>
+      <section className="md:ml-[300px]">
+        <div className="flex">
+          <div>VIDEOS {params.id}</div>
+        </div>
+      </section>
+    </>
+  );
 };
 
-export default page;
+export default CoursePage;

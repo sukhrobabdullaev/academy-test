@@ -1,22 +1,26 @@
 import CourseSidebar from "@/components/shared/course-sidebar";
-import Navbar from "@/components/shared/navbar";
+import type { Metadata } from "next";
 
-export default function RootLayout({
+export const metadata: Metadata = {
+  title: "Academy",
+  description: "Sukhrob Academy",
+};
+
+export default function AccessLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <>
-      <section className="flex flex-col">
-        <Navbar />
+      <div className="flex flex-col">
         <div className="flex flex-1 mt-14">
-          <div className="z-20">
+          <div className="md:block hidden">
             <CourseSidebar />
           </div>
           <main className="flex-1 p-6">{children}</main>
         </div>
-      </section>
+      </div>
     </>
   );
 }
