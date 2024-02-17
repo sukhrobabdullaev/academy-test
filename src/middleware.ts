@@ -9,8 +9,9 @@ export default authMiddleware({
     "/articles",
     "/source_code",
     "/courses",
-    "/courses/react",
-    "/courses/html",
+    "/course/react",
+    "/course/html",
+    "/course/css",
     "/projects",
   ],
 });

@@ -1,4 +1,4 @@
-import { FileVideoIcon, PlayCircle, PlaySquare } from "lucide-react";
+import { PlayCircle } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
