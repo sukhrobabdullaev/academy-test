@@ -19,7 +19,7 @@ async function getData(id: string) {
 }
 const CourseSidebar = async () => {
   const data = await getData("react");
-  console.log(data);
+  // console.log(data);
 
   if (!data) {
     // Render an appropriate message or handle the null case

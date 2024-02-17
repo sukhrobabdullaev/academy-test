@@ -1,4 +1,9 @@
-import { CoursesType, ICourse } from "@/interfaces/courses.interface";
+import {
+  CourseData,
+  CoursesType,
+  ICourse,
+  IVideo,
+} from "@/interfaces/courses.interface";
 import { request, gql } from "graphql-request";
 
 const graphAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT!;
@@ -67,7 +72,7 @@ export const CoursesService = {
       slug,
     };
 
-    const res = await request<{ videos: ICourse }>(graphAPI, query, slugName);
-    return res.videos;
+    const res = await request<CourseData>(graphAPI, query, slugName);
+    return res.course;
   },
 };

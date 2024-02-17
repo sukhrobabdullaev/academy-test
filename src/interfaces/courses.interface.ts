@@ -23,3 +23,17 @@ export interface ICourse {
     }[];
   }[];
 }
+
+export interface IVideo {
+  slug: string;
+  title: string;
+  video: {
+    url: string;
+  }[];
+}
+
+export interface CourseData {
+  course: {
+    videos: IVideo[];
+  };
+}
