@@ -27,7 +27,7 @@ const SingleCourse = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className={cn("md:ml-64", montserrat.className)}>
       <CourseDetailed data={data} />
-      <div className="mt-8 flex flex-row gap-8">
+      <div className="mt-8 flex lg:flex-row flex-col gap-8">
         <Results data={data} />
         <CoursePrice params={params} />
       </div>

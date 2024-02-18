@@ -1,6 +1,11 @@
 "use client";
 
-import { PlayCircle, SidebarClose, SidebarOpen } from "lucide-react";
+import {
+  ChevronLeftCircle,
+  PlayCircle,
+  SidebarClose,
+  SidebarOpen,
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -15,6 +20,7 @@ import {
   useSearchParams,
 } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 
 const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
@@ -84,6 +90,13 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
                 ))}
               </AccordionContent>
             </AccordionItem>
+            <Button
+              className="flex gap-2 fixed bottom-4 justify-center items-center"
+              onClick={() => router.push("/courses")}
+            >
+              <ChevronLeftCircle className="w-5 h-5" />
+              Orqaga
+            </Button>
           </Accordion>
         </div>
       </div>
