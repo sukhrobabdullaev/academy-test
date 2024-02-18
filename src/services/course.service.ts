@@ -59,6 +59,7 @@ export const CoursesService = {
       query getDetailedCourse($slug: String!) {
         course(where: { slug: $slug }) {
           videos {
+            description
             slug
             title
             video {
@@ -74,5 +75,25 @@ export const CoursesService = {
 
     const res = await request<CourseData>(graphAPI, query, slugName);
     return res.course;
+  },
+  async getSingleVideo(slug: string) {
+    const query = gql`
+      query singleVideo($slug: String!) {
+        video(where: { slug: $slug }) {
+          description
+          slug
+          title
+          video {
+            url
+          }
+        }
+      }
+    `;
+    const slugName = {
+      slug,
+    };
+
+    const res = await request<{ video: IVideo }>(graphAPI, query, slugName);
+    return res.video;
   },
 };

@@ -25,6 +25,7 @@ export interface ICourse {
 }
 
 export interface IVideo {
+  description: string;
   slug: string;
   title: string;
   video: {

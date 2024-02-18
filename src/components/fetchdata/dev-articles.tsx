@@ -41,7 +41,6 @@ const MediumPosts: React.FC = () => {
         const response = await axios.get(
           `https://dev.to/api/articles?username=${username}`
         );
-        // console.log(response.data);
         const postsWithUuid = response.data.map((post: Post) => ({
           ...post,
           id: uuidv4(),

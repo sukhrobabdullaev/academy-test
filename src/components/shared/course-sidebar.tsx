@@ -1,3 +1,5 @@
+"use client";
+
 import { PlayCircle } from "lucide-react";
 import {
   Accordion,
@@ -5,27 +7,32 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
-import { CoursesService } from "@/services/course.service";
-import Link from "next/link";
+import { IVideo } from "@/interfaces/courses.interface";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
+import { useEffect } from "react";
 
-async function getData(id: string) {
-  try {
-    const detailedCourse = await CoursesService.getDetailedCourse(id);
-    return detailedCourse.videos;
-  } catch (error) {
-    console.error("Error fetching detailed course:", error);
-    return null;
-  }
-}
-const CourseSidebar = async () => {
-  const data = await getData("react");
-  // console.log(data);
+const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+  const searchParams = useSearchParams();
 
-  if (!data) {
-    // Render an appropriate message or handle the null case
-    return <div>No data available for this course</div>;
+  const query = searchParams.get("video_id");
+
+  useEffect(() => {
+    const defaultSlug = query || (videos.length > 0 ? videos[0].slug : "");
+    handleClick(defaultSlug);
+  }, [videos, query]);
+
+  function handleClick(slug: string) {
+    const video_id = `/?video_id=${slug}`;
+    router.push(`${pathname}${video_id}`);
   }
-  const text = "#10 New One New One New One New One New One";
   return (
     <>
       <div
@@ -37,12 +44,13 @@ const CourseSidebar = async () => {
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0 p-2">
               <AccordionTrigger className="hover:no-underline text-base font-semibold rounded-md p-1">
-                1-Modul. ReactJS asoslari
+                1-Modul. {`${params.slug.toLocaleString().toUpperCase()} `}
+                asoslari
               </AccordionTrigger>
               <AccordionContent className="py-2">
-                {data.map((video, i) => (
-                  <Link
-                    href={`/${video.slug}`}
+                {videos.map((video, i) => (
+                  <div
+                    onClick={() => handleClick(video.slug)}
                     key={video.slug}
                     className="flex items-center justify-between text-sm py-2 hover:opacity-75"
                     role="button"
@@ -54,7 +62,7 @@ const CourseSidebar = async () => {
                       </p>
                     </div>
                     <p>10:12</p>
-                  </Link>
+                  </div>
                 ))}
               </AccordionContent>
             </AccordionItem>

@@ -1,47 +1,42 @@
 "use client";
 
-import {
-  CourseData,
-  CoursesType,
-  ICourse,
-  IVideo,
-} from "@/interfaces/courses.interface";
+import { IVideo } from "@/interfaces/courses.interface";
 import { CoursesService } from "@/services/course.service";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const CoursePage = () => {
-  const [videos, setVideos] = useState<IVideo[]>([]);
+  const [singleVideo, setSingleVideo] = useState<IVideo>();
 
-  const params = useParams();
-  const slug = typeof params.slug === "string" ? params.slug : params.slug[0];
+  const searchParams = useSearchParams();
+  const video_id = searchParams.get("video_id");
+  // console.log(video_id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await CoursesService.getDetailedCourseVidoes(slug);
-        // console.log(data.videos);
-        setVideos(data.videos);
+        if (video_id) {
+          // Ensure video_id is present
+          const data = await CoursesService.getSingleVideo(video_id);
+          setSingleVideo(data);
+        }
       } catch (error) {
-        console.error("Error fetching videos:", error);
+        console.error("Error fetching video:", error);
       }
     };
     fetchData();
-  }, [slug]);
+  }, [video_id]);
+
+  console.log(singleVideo);
 
   return (
     <>
       <section className="md:ml-[300px]">
         <div className="flex">
           <div>
-            VIDEOS {slug}
-            {videos.map((video) => (
-              <div key={video.slug}>
-                {video.title}
-                <br />
-                <a href={video.video[0].url}>{video.video[0].url}</a>
-              </div>
-            ))}
+            {singleVideo && singleVideo.video.length > 0 && (
+              <a href={singleVideo.video[0].url}>{singleVideo.title}</a> // Access singleVideo directly
+            )}
           </div>
         </div>
       </section>

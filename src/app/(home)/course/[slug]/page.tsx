@@ -19,7 +19,6 @@ async function getData(id: string) {
 
 const SingleCourse = async ({ params }: { params: { slug: string } }) => {
   const data = await getData(params.slug);
-  console.log(data);
 
   if (!data) {
     return <div>No data available for this course</div>;
