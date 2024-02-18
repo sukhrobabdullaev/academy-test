@@ -1,6 +1,6 @@
 "use client";
 
-import { PlayCircle } from "lucide-react";
+import { PlayCircle, SidebarClose, SidebarOpen } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -14,9 +14,12 @@ import {
   useRouter,
   useSearchParams,
 } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
@@ -32,11 +35,25 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
   function handleClick(slug: string) {
     const video_id = `/?video_id=${slug}`;
     router.push(`${pathname}${video_id}`);
+    setSelectedSlug(slug);
+    setSidebarOpen(false);
   }
   return (
-    <>
+    <div className="relative">
+      <button
+        className="md:hidden absolute z-[51] -bottom-4 shadow-md p-2 rounded-full"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        {sidebarOpen ? (
+          <SidebarClose className="w-6 h-6" />
+        ) : (
+          <SidebarOpen className="w-6 h-6" />
+        )}
+      </button>
       <div
-        className={`text-center md:top-14 z-50 bg-background transition ease-in duration-300 lg:block fixed p-2 md:border-t overflow-y-auto md:w-[300px] left-0 h-full md:border-r overflow-auto`}
+        className={`text-center md:top-14 z-50 bg-background transition ease-in duration-300 lg:block fixed p-2 md:border-t overflow-y-auto md:w-[300px] left-0 h-full md:border-r overflow-auto  ${
+          sidebarOpen ? "w-full" : "w-0"
+        }`}
       >
         <div
           className={`flex md:gap-3 gap-2 items-center justify-center flex-col`}
@@ -52,7 +69,9 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
                   <div
                     onClick={() => handleClick(video.slug)}
                     key={video.slug}
-                    className="flex items-center justify-between text-sm py-2 hover:opacity-75"
+                    className={`flex items-center justify-between text-sm py-2 hover:opacity-75 rounded-sm ${
+                      selectedSlug === video.slug ? "bg-[#3bc43f]" : ""
+                    }`}
                     role="button"
                   >
                     <div className="flex items-center gap-2">
@@ -61,7 +80,6 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
                         #{i + 1} {`${video.title.substring(0, 20)}`}
                       </p>
                     </div>
-                    <p>10:12</p>
                   </div>
                 ))}
               </AccordionContent>
@@ -69,7 +87,7 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
           </Accordion>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

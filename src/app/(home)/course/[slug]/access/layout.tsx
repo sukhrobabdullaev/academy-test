@@ -38,11 +38,9 @@ export default function AccessLayout({
   return (
     <>
       <div className="flex flex-col">
-        <div className="flex flex-1 mt-14">
-          <div className="md:block hidden">
-            <CourseSidebar videos={videos} />
-          </div>
-          <main className="flex-1 p-6">{children}</main>
+        <div className="md:flex md:flex-1">
+          <CourseSidebar videos={videos} />
+          <main className="flex-1">{children}</main>
         </div>
       </div>
     </>

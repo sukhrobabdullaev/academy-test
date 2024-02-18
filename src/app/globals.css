@@ -90,3 +90,6 @@
   border-radius: 14px;
   border: 1px solid var(--background);
 }
+.react-player {
+  border-right: 0.5px solid white;
+}
