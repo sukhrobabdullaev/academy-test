@@ -45,7 +45,7 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
     // Simulate data loading delay
     const timer = setTimeout(() => {
       setLoading(false); // Set loading to false after a certain delay
-    }, 2000); // Adjust the delay time as needed or remove it for actual data fetching
+    }, 1000); // Adjust the delay time as needed or remove it for actual data fetching
 
     // Cleanup function to clear the timer
     return () => clearTimeout(timer);
@@ -70,8 +70,8 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
         )}
       </button>
       <div
-        className={`text-center md:top-14 z-50 bg-background transition ease-in duration-300 lg:block fixed p-2 md:border-t overflow-y-auto md:w-[300px] left-0 h-full md:border-r overflow-auto  ${
-          sidebarOpen ? "w-full" : "w-0"
+        className={`text-center md:top-14 z-50 bg-background transition ease-in duration-300 lg:block fixed p-2 md:border-t md:overflow-y-auto md:w-[300px] left-0 h-full md:border-r overflow-hidden  ${
+          sidebarOpen ? "w-full" : "w-0 "
         }`}
       >
         {loading ? (
