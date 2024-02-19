@@ -47,7 +47,7 @@ export function Contact() {
             <Textarea
               id="message"
               className="col-span-3"
-              placeholder="message"
+              placeholder="Xabaringiz"
             />
           </div>
         </div>

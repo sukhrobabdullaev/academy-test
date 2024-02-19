@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import SiteLogo from "./site-logo";
 import { SheetClose } from "../ui/sheet";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BookOpenIcon,
   Brackets,
@@ -16,22 +16,26 @@ import {
   LayoutDashboard,
   SquareCode,
 } from "lucide-react";
+import { Skeleton } from "../ui/skeleton";
+import { cn } from "@/lib/utils";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 
 const SideLinks = (props: any) => {
+  const { isSignedIn, user, isLoaded } = useUser();
+
   const [SheetCloseWrapper, shetCloseWrapperProps] = props.withSheetClose
     ? [SheetClose, { asChild: true }]
     : [React.Fragment, {}];
 
   const pathname = usePathname();
-  const { isSignedIn, user, isLoaded } = useUser();
   const { signOut } = useClerk();
   const router = useRouter();
 
   const handleSignOut = () => {
     router.push("/");
   };
+
   return (
     <>
       <div
@@ -59,6 +63,7 @@ const SideLinks = (props: any) => {
               </SheetCloseWrapper>
             );
           })}
+
           {isSignedIn && isLoaded && (
             <SheetCloseWrapper {...shetCloseWrapperProps}>
               <Link
@@ -71,6 +76,13 @@ const SideLinks = (props: any) => {
                 <span className={`lg:block`}>Dashboard</span>
               </Link>
             </SheetCloseWrapper>
+          )}
+
+          {!isLoaded && !isSignedIn && (
+            <div className="flex items-center gap-2 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`">
+              <Skeleton className="w-12 h-12 " />
+              <Skeleton className="w-full h-12" />
+            </div>
           )}
         </div>
 
