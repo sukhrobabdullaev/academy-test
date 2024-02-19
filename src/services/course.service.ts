@@ -67,12 +67,6 @@ export const CoursesService = {
             }
           }
         }
-        viewer {
-          project(id: "9ec37a5257454ed08cc77b934a34d343") {
-            defaultPaginationSize
-            maxPaginationSize
-          }
-        }
       }
     `;
     const slugName = {
