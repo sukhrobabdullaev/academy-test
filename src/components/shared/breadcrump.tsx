@@ -36,7 +36,7 @@ const NextBreadcrumb = ({
           // Correcting the behavior for the link "/course"
           if (href === "/course") {
             href = "/courses";
-            link = "Courses"; // Display "Courses" instead of "Course"
+            link = "Kurslar"; // Display "Courses" instead of "Course"
           }
           let itemClasses =
             paths === href ? `${listClasses} ${activeClasses}` : listClasses;

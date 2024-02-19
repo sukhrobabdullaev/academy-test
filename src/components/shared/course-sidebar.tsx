@@ -21,10 +21,12 @@ import {
 } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 
 const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const pathname = usePathname();
   const router = useRouter();
@@ -37,6 +39,17 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
     const defaultSlug = query || (videos.length > 0 ? videos[0].slug : "");
     handleClick(defaultSlug);
   }, [videos, query]);
+
+  useEffect(() => {
+    setLoading(true); // Set loading to true when the component mounts
+    // Simulate data loading delay
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after a certain delay
+    }, 2000); // Adjust the delay time as needed or remove it for actual data fetching
+
+    // Cleanup function to clear the timer
+    return () => clearTimeout(timer);
+  }, []);
 
   function handleClick(slug: string) {
     const video_id = `/?video_id=${slug}`;
@@ -61,44 +74,70 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
           sidebarOpen ? "w-full" : "w-0"
         }`}
       >
-        <div
-          className={`flex md:gap-3 gap-2 items-center justify-center flex-col`}
-        >
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1" className="border-b-0 p-2">
-              <AccordionTrigger className="hover:no-underline text-base font-semibold rounded-md p-1">
-                1-Modul. {`${params.slug.toLocaleString().toUpperCase()} `}
-                asoslari
-              </AccordionTrigger>
-              <AccordionContent className="py-2">
-                {videos.map((video, i) => (
-                  <div
-                    onClick={() => handleClick(video.slug)}
-                    key={video.slug}
-                    className={`flex items-center justify-between text-sm py-2 hover:opacity-75 rounded-sm ${
-                      selectedSlug === video.slug ? "bg-[#3bc43f]" : ""
-                    }`}
-                    role="button"
-                  >
-                    <div className="flex items-center gap-2">
-                      <PlayCircle className="w-4 h-4" />
-                      <p>
-                        #{i + 1} {`${video.title.substring(0, 20)}`}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </AccordionContent>
-            </AccordionItem>
-            <Button
-              className="flex gap-2 z-20 fixed bottom-4 justify-center items-center"
-              onClick={() => router.push("/courses")}
+        {loading ? (
+          <div className="flex flex-col gap-2">
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-full" />
+          </div>
+        ) : (
+          <div
+            className={`flex md:gap-3 gap-2 items-center justify-center flex-col`}
+          >
+            <Accordion
+              type="single"
+              defaultValue="item-1"
+              collapsible
+              className="w-full"
             >
-              <ChevronLeftCircle className="w-5 h-5" />
-              Kurslar
-            </Button>
-          </Accordion>
-        </div>
+              <AccordionItem value="item-1" className="border-b-0 p-2">
+                <AccordionTrigger className="hover:no-underline text-base font-semibold rounded-md p-1">
+                  1-Modul. {`${params.slug.toLocaleString().toUpperCase()} `}
+                  asoslari
+                </AccordionTrigger>
+                <AccordionContent className="py-2">
+                  {videos.map((video, i) => (
+                    <div
+                      onClick={() => handleClick(video.slug)}
+                      key={video.slug}
+                      className={`flex items-center justify-between text-sm py-2 hover:opacity-75 rounded-sm ${
+                        selectedSlug === video.slug ? "bg-[#3bc43f]" : ""
+                      }`}
+                      role="button"
+                    >
+                      <div className="flex items-center gap-2">
+                        <PlayCircle className="w-4 h-4" />
+                        <p>
+                          #{i + 1} {`${video.title.substring(0, 20)}`}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
+              <Button
+                className="flex gap-2 z-20 fixed bottom-4 justify-center items-center"
+                onClick={() => router.push("/courses")}
+              >
+                <ChevronLeftCircle className="w-5 h-5" />
+                Kurslar
+              </Button>
+            </Accordion>
+          </div>
+        )}
       </div>
     </div>
   );
