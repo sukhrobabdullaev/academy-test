@@ -1,5 +1,3 @@
-"use client";
-
 import { Quicksand } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,8 +5,6 @@ import { usePathname } from "next/navigation";
 
 const quicksand = Quicksand({ subsets: ["latin"], weight: ["300", "500"] });
 const Home = () => {
-  const pathname = usePathname();
-
   return (
     <div
       className={`${quicksand.className} md:ml-64 p-4 border sm:flex sm:items-center sm:justify-around rounded-md`}
@@ -25,15 +21,13 @@ const Home = () => {
         <div className="flex items-center gap-3 mt-3">
           <Link
             href="/courses"
-            className={`${
-              pathname === "/courses" && "bg-[#3bc43f]"
-            } p-3 text-center lg:w-1/4 lg:text-sm w-full rounded-md transition-all duration-300 ease-in-out border`}
+            className={`hover:bg-[#3bc43f] p-3 text-center lg:w-1/4 lg:text-sm w-full rounded-md transition-all duration-300 ease-in-out border`}
           >
             Kurslar
           </Link>
           <Link
             href="/projects"
-            className={`p-3 text-center lg:w-1/4 w-full lg:text-sm rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800 bg-[#3bc43f] border`}
+            className={`p-3 text-center lg:w-1/4 w-full lg:text-sm rounded-md transition-all duration-300 ease-in-out  bg-[#3bc43f] border hover:bg-background`}
           >
             Loyihalar
           </Link>

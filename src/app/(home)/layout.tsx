@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/navbar";
 import Sidebar from "@/components/shared/sidebar";
-import { auth } from "@clerk/nextjs/server";
 
 export const metadata: Metadata = {
   title: "Academy",

@@ -3,12 +3,7 @@
 import { IVideo } from "@/interfaces/courses.interface";
 import { CoursesService } from "@/services/course.service";
 import { CheckCircle } from "lucide-react";
-import {
-  useParams,
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player/lazy";
 

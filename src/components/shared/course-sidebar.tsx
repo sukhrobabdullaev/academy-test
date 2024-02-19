@@ -91,11 +91,11 @@ const CourseSidebar = ({ videos }: { videos: IVideo[] }) => {
               </AccordionContent>
             </AccordionItem>
             <Button
-              className="flex gap-2 fixed bottom-4 justify-center items-center"
+              className="flex gap-2 z-20 fixed bottom-4 justify-center items-center"
               onClick={() => router.push("/courses")}
             >
               <ChevronLeftCircle className="w-5 h-5" />
-              Orqaga
+              Kurslar
             </Button>
           </Accordion>
         </div>

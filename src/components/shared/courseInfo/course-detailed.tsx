@@ -11,7 +11,7 @@ const CourseDetailed = ({ data }: { data: ICourse }) => {
           <p className="w-full opacity-50 text-base mt-3">{data.info}</p>
           <div className="mt-10 text-base flex text-[#3bc43f] flex-row gap-2 md:text-lg">
             <span>Darslar soni: </span>
-            <span className="font-bold">24 ta</span>
+            <span className="font-bold">{data.videos.length} ta</span>
           </div>
         </div>
         <div className="flex flex-col gap-2 lg:h-64 rounded-md items-center justify-center lg:w-[40%]">
