@@ -17,7 +17,6 @@ import {
   SquareCode,
 } from "lucide-react";
 import { Skeleton } from "../ui/skeleton";
-import { cn } from "@/lib/utils";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["300", "500"] });
 

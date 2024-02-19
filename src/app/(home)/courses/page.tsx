@@ -3,6 +3,10 @@ import { Card } from "@/components/ui/card";
 import CustomImage from "@/components/shared/image";
 import { CoursesService } from "@/services/course.service";
 
+export const metadata = {
+  title: "Academy | Kurslar",
+};
+
 function getData() {
   try {
     const res = CoursesService.getCourses();

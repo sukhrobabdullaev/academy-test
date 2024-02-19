@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import NextBreadcrumb from "@/components/shared/breadcrump";
 import CourseDetailed from "@/components/shared/courseInfo/course-detailed";
 import CoursePrice from "@/components/shared/courseInfo/course-price";
@@ -17,6 +18,23 @@ async function getData(id: string) {
     console.error("Error fetching detailed course:", error);
     return null;
   }
+}
+
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const id = params.slug;
+  const course = await CoursesService.getDetailedCourse(id);
+
+  return {
+    title: `Academy | ${course ? course.label.substring(0, 20) : "not found"}`,
+  };
 }
 
 const SingleCourse = async ({ params }: { params: { slug: string } }) => {

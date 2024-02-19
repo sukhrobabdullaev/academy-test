@@ -8,9 +8,13 @@ const SiteLogo = () => {
   return (
     <Link
       href="/"
-      className={cn("font-bold text-3xl", league_Spartan.className)}
+      className={cn(
+        "font-bold text-3xl flex items-center gap-2",
+        league_Spartan.className
+      )}
     >
-      academy.
+      <span>academy.</span>
+      <p className="text-lg px-2 block bg-green-400/60 rounded-md">beta</p>
     </Link>
   );
 };
