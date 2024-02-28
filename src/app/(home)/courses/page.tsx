@@ -21,8 +21,10 @@ const Courses = async () => {
 
   return (
     <div className="md:ml-64">
-      <h2 className="text-3xl mb-3">Kurslar</h2>
-      <div className="flex items-center gap-6 flex-wrap">
+      <h2 className="md:text-4xl text-xl mb-3 font-mono hidden md:block">
+        Kurslar
+      </h2>
+      <div className="flex items-center md:justify-start justify-center gap-6 flex-wrap">
         {data &&
           data.map((course) => (
             <Card key={course.label}>

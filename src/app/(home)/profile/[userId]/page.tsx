@@ -3,7 +3,6 @@
 import { useUser } from "@clerk/nextjs";
 import { Calendar, Edit } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 const UserProfile = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -29,15 +28,6 @@ const UserProfile = () => {
             </span>
           </div>
         </div>
-      </div>
-      <div className="user_update">
-        <Link
-          href={`${user?.id}/edit`}
-          className={`bg-[#3bc43f] flex text-lg items-center gap-1 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out dark:hover:bg-zinc-800`}
-        >
-          <Edit className="w-6 h-6" />
-          <span className="hidden lg:block">Profilni tahrirlash</span>
-        </Link>
       </div>
     </div>
   );

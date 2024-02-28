@@ -6,7 +6,7 @@ const MobileSidebar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <MenuSquare className="w-6 h-6 inline-block" />
+        <MenuSquare className="w-5 h-5 inline-block" />
       </SheetTrigger>
       <SheetContent side="left" className="w-3/4 border-r-0">
         <SideLinks withSheetClose />

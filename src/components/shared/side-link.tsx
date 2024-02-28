@@ -66,9 +66,9 @@ const SideLinks = (props: any) => {
           {isSignedIn && isLoaded && (
             <SheetCloseWrapper {...shetCloseWrapperProps}>
               <Link
-                href={`/profile/${user.id}`}
+                href={`/profile/${user.pathRoot}`}
                 className={`${
-                  pathname === `/profile/${user.id}` && "bg-[#3bc43f]"
+                  pathname === `/profile/${user.pathRoot}` && "bg-[#3bc43f]"
                 } flex text-lg items-center gap-4 p-3 w-full mx-auto rounded-md transition-all duration-300 ease-in-out`}
               >
                 <LayoutDashboard className="w-6 h-6" />

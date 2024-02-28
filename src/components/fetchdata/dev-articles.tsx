@@ -62,8 +62,8 @@ const MediumPosts: React.FC = () => {
 
   return (
     <div>
-      <h2 className="mb-2 text-lg text-center font-bold">
-        Top Articles for Web Development
+      <h2 className="mb-2 text-[20px] md:text-[30px] text-center font-semibold">
+        Web dasturlashga oid top maqolalar
       </h2>
       <ul className="flex flex-wrap lg:gap-10 xl:gap-10">
         {posts.map((post) => (

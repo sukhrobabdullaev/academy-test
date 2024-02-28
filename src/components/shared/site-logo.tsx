@@ -9,7 +9,7 @@ const SiteLogo = () => {
     <Link
       href="/"
       className={cn(
-        "font-bold text-3xl flex items-center gap-2",
+        "font-bold md:text-3xl text-xl flex items-center md:gap-2",
         league_Spartan.className
       )}
     >
