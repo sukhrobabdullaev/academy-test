@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="fixed top-0 z-50 w-full backdrop-blur border-b p-2">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center md:gap-2">
+          <div className="flex items-center gap-2">
             <div className="md:hidden block">
               <MobileSidebar />
             </div>
