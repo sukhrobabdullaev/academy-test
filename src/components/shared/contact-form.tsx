@@ -24,9 +24,14 @@ const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username @ bilan boshlanishi kerak.",
   }),
-  message: z.string().min(20, {
-    message: "Xabaringiz 20 belgidan kam bo'lmasligi kerak.",
-  }),
+  message: z
+    .string()
+    .min(10, {
+      message: "Xabar 10 belgidan kam bo'lmasligi kerak.",
+    })
+    .max(160, {
+      message: "Xabar 160 belgidan kam bo'lishi kerak.",
+    }),
 });
 
 const ContactForm = () => {
@@ -39,14 +44,28 @@ const ContactForm = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    let my_text = `- <b>User:</b> <u>${values.username} </u>%0A- <b>Xabari:</b> <i>${values.message}</i>`;
-
+    let my_text = `- <b>User:</b> <u>${
+      values.username
+    } </u>%0A- <b>Xabari:</b> <pre>${values.message.replace(
+      /\\n/g,
+      "\n"
+    )}</pre>`;
     let token = "6703350714:AAGVO6L9Fg2fc1fDF5oA2if4r4-CkH2WRnk";
     let chat_id = 843790385;
-    let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}&parse_mode=html`;
+    let url = `https://api.telegram.org/bot${token}/sendMessage`;
+    let data = {
+      chat_id,
+      text: my_text,
+      parse_mode: "html",
+    };
 
     try {
-      const res = await axios.get(url);
+      const res = await axios.post(url, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       if (res.status === 200) {
         form.reset();
         const timestampInSeconds = res?.data?.result?.date;
@@ -76,6 +95,13 @@ const ContactForm = () => {
       }
     } catch (error) {
       console.error("Error sending message:", error);
+      toast("Xatolik yuz berdi", {
+        description: `Qayta urinib ko'ring `,
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      });
     }
   }
 
