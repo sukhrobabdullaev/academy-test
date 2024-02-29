@@ -8,6 +8,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import NextBreadcrumb from "@/components/shared/breadcrump";
+import { Toaster } from "@/components/ui/sonner";
 
 const localization = {
   socialButtonsBlockButton: "{{provider|titleize}} orqali davom etish",
@@ -70,6 +71,7 @@ export default function RootLayout({
               showSpinner={false}
             />
             <main>{children}</main>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
